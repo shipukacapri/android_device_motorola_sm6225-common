@@ -56,7 +56,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
-    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.3-impl
 
 PRODUCT_PACKAGES += \
@@ -144,10 +144,6 @@ PRODUCT_PACKAGES += \
 # FM
 PRODUCT_PACKAGES += \
     FM2
-
-# Framework detect
-PRODUCT_PACKAGES += \
-    libvndfwk_detect_jni.qti.vendor # Needed by CNE app
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -249,6 +245,7 @@ PRODUCT_PACKAGES += \
     FrameworksResCommon \
     FrameworksResProduct \
     FrameworksResTarget \
+    LineageApertureAppCommon \
     NcmTetheringOverlay \
     SettingsProviderResCommon \
     SystemUIResCommon \
