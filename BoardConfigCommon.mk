@@ -67,6 +67,7 @@ BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+TARGET_KERNEL_CLANG_VERSION := r596125
 TARGET_KERNEL_CONFIG := vendor/bengal-perf_defconfig vendor/ext_config/moto-bengal.config
 TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/motorola/sm6225
@@ -107,7 +108,7 @@ TARGET_MODULE_ALIASES += \
     wlan.ko:qca_cld3_wlan.ko
 
 # Partitions
--include vendor/lineage/config/BoardConfigReservedSize.mk
+# -include vendor/lineage/config/BoardConfigReservedSize.mk
 
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_USES_METADATA_PARTITION := true
@@ -121,7 +122,7 @@ BOARD_SUPER_PARTITION_GROUPS := moto_dynamic_partitions
 BOARD_MOTO_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor
 BOARD_MOTO_DYNAMIC_PARTITIONS_SIZE ?= 7579107328 # BOARD_SUPER_PARTITION_SIZE - 4MB
 
-BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -132,6 +133,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
+
+BOARD_EROFS_COMPRESSOR := lz4
+BOARD_EROFS_PCLUSTER_SIZE := 262144
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
@@ -157,6 +161,7 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Sepolicy
+include device/lineage/sepolicy/libion/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include hardware/motorola/sepolicy/qti/SEPolicy.mk
 
