@@ -117,8 +117,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64
 
 # ConfigStore
-PRODUCT_PACKAGES += \
-    disable_configstore
 
 # Display
 PRODUCT_PACKAGES += \
