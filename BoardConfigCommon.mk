@@ -67,6 +67,7 @@ BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+TARGET_KERNEL_CLANG_VERSION := r596125
 TARGET_KERNEL_CONFIG := vendor/bengal-perf_defconfig vendor/ext_config/moto-bengal.config
 TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/motorola/sm6225
@@ -157,6 +158,7 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Sepolicy
+include device/lineage/sepolicy/libion/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include hardware/motorola/sepolicy/qti/SEPolicy.mk
 
